@@ -4,8 +4,21 @@
     {% # Inlined CSS Variables %}
     {% render 'css-variables' %}
 
-    {% # Load and preload the critical CSS %}
-    {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
+    {% comment %}
+      {% # Load and preload the critical CSS %}
+      {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
+    {% endcomment %}
+
+    {% # Load and preload the bootstrap CSS %}
+    {{ 'bootstrap.css' | asset_url | stylesheet_tag }}
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+      integrity="sha512-XcIsjKMcuVe0Ucj/xgIXQnytNwBttJbNjltBV18IOnru2lDPe9KRRyvCXw6Y5H415vbBLRm8+q6fmLUU7DfO6Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    >
 
     {% # Social, title, etc. %}
     {% render 'meta-tags' %}
@@ -19,5 +32,8 @@
     {{ content_for_layout }}
 
     {% sections 'footer-group' %}
+
+    {% comment %} {{ 'bootstrap.min.js' | asset_url | script_tag }} {% endcomment %}
+    <script src="{{ 'bootstrap.min.js' | asset_url }}" defer></script>
   </body>
 </html>

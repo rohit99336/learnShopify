@@ -9,12 +9,16 @@
  */
 {
   "sections": {
+    "hero": {
+      "type": "home-hero"
+    },
     "main": {
       "type": "hello-world",
       "settings": {}
     }
   },
   "order": [
+    "hero",
     "main"
   ]
 }
